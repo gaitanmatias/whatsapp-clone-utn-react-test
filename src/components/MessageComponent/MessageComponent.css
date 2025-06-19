@@ -1,0 +1,51 @@
+.message-container--yo,
+.message-container--otro {
+  display: inline-block;
+  align-self: flex-end;
+
+  max-width: 60%;
+  padding: 8px 10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  border-radius: 8px 8px 0px 8px;
+
+  background-color: #103529;
+
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.message-container--otro {
+  align-self: flex-start;
+  background-color: #262524;
+  border-radius: 8px 8px 8px 0px;
+}
+
+.message--seguido {
+  margin-top: 2px;
+}
+
+/* Contenedor interno: texto + footer */
+.message__text-content {
+  display: inline-flex;
+  align-items: flex-end;
+  flex-wrap: wrap; /* Permite que la hora baje si no entra */
+  gap: 4px;
+
+  font-size: 14px;
+  color: white;
+  line-height: 1.4;
+}
+
+/* Contenedor de hora + status */
+.message__footer {
+  display: flex;
+  align-items: center;
+
+  margin-left: auto; /* Empuja la hora a la derecha si entra */
+  padding-left: 4px;
+
+  font-size: 10px;
+  color: #848488;
+  white-space: nowrap;
+}
