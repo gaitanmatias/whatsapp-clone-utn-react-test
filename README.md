@@ -8,6 +8,20 @@ El proyecto consiste en un **clon simple de la interfaz de WhatsApp**, orientado
 
 No se trata de una aplicación final ni de un diseño completo, sino de un ejercicio con fines didácticos y de práctica personal.
 
+---
+
+## Segunda parte del ejercicio (nuevas funcionalidades)
+
+En esta segunda etapa se incorporaron mejoras importantes:
+
+- Se añadió un botón para eliminar mensajes, gestionando el estado y eventos para actualizar la lista dinámicamente.  
+- Se creó un componente `InputMessageComponent` con un formulario para enviar nuevos mensajes, simulando emisor y hora.  
+- La gestión del estado (agregar y eliminar mensajes) se centralizó en el componente principal `App.jsx` para mantener un flujo de datos claro.  
+- Se organizó el nuevo componente en una carpeta propia, manteniendo una estructura modular y ordenada.
+
+Estas mejoras permiten practicar interactividad, manejo de eventos y estados más complejos en React.
+
+
 ## ⚙️ Tecnologías utilizadas
 
 - [React](https://reactjs.org/) – Librería para construir interfaces de usuario.
@@ -26,17 +40,20 @@ src/
 │   ├── ChatComponent/
 │   │   ├── ChatComponent.jsx
 │   │   └── ChatComponent.css
-│   └── MessageComponent/
-│       ├── MessageComponent.jsx
-│       └── MessageComponent.css
+│   ├── MessageComponent/
+│   │   ├── MessageComponent.jsx
+│   │   └── MessageComponent.css
+│   └── InputMessageComponent/
+│       ├── InputMessageComponent.jsx
+│       └── InputMessageComponent.css
 ├── data/
-│   └── messages.jsx     // Contiene un array de objetos con los mensajes simulados
+│   └── messages.jsx
 ├── App.jsx
 ├── index.css
 ├── main.jsx
 ```
 
-Además, en la raíz del proyecto se incluye una carpeta `CONSIGNA/` que contiene la consigna original del ejercicio y una imagen de ejemplo.
+Se incluye una carpeta `CONSIGNAS/` que contiene las consignas de los ejercicios.
 
 
 ## 🎯 Objetivo personal

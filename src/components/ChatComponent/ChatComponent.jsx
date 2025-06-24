@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import MensajesIniciales from './../../data/MensajesIniciales.jsx'
+import MensajesIniciales from '../../data/messages.jsx'
 import MessageComponent from '../MessageComponent/MessageComponent.jsx'
 import InputMessageComponent from '../InputMessageComponent/InputMessageComponent.jsx'
 import './ChatComponent.css'
