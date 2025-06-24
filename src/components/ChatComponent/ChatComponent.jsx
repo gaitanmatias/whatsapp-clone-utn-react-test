@@ -1,28 +1,57 @@
 import React from 'react'
-import Mensajes from './../../data/messages.jsx'
-import MessagesComponent from '../MessageComponent/MessageComponent.jsx'
+import { useState } from 'react'
+import MensajesIniciales from './../../data/MensajesIniciales.jsx'
+import MessageComponent from '../MessageComponent/MessageComponent.jsx'
+import InputMessageComponent from '../InputMessageComponent/InputMessageComponent.jsx'
 import './ChatComponent.css'
 
 function ChatComponent() {
+  const [mensajes, setMensajes] = React.useState(MensajesIniciales);
+
+  const messageDelete = (id) => {
+    setMensajes(mensajes.filter((mensaje) => mensaje.id !== id));
+  };
+
+  // ChatComponent.jsx
+  const messageSend = (event) => {
+    event.preventDefault()
+    const texto = event.target.texto.value.trim()
+    if (!texto) return
+
+    const nuevoMensaje = {
+      id: mensajes.length > 0 ? mensajes[mensajes.length - 1].id + 1 : 1,
+      emisor: 'YO',
+      hora: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      texto: texto,
+      status: 'no-recibido'
+    }
+
+    setMensajes([...mensajes, nuevoMensaje])
+    event.target.reset() // Limpia el formulario
+  }
+
   return (
     <div className='chat-container'>
-      {Mensajes.map((mensaje, index) => {
-        // Verifica si el mensaje anterior existe y si su emisor es el mismo que el del mensaje actual
-        // Esto permite determinar si el mensaje actual es "seguido" por el mismo emisor
-        const anterior = Mensajes[index - 1]; 
+      <div className='chat-messages'>
+        {mensajes.map((mensaje, index) => {
+        const anterior = mensajes[index - 1]; 
         const seguido = anterior?.emisor === mensaje.emisor;
 
         return (
-          <MessagesComponent
+          <MessageComponent
             key={mensaje.id}
+            id={mensaje.id}
             emisor={mensaje.emisor}
             hora={mensaje.hora}
             texto={mensaje.texto}
             estado={mensaje.status}
-            seguido={seguido} // propiedad para indicar si el mensaje es seguido
+            seguido={seguido}
+            messageDelete={messageDelete}
           />
         );
       })}
+      </div>
+      <InputMessageComponent messageSend={messageSend} />
     </div>
   );
 }

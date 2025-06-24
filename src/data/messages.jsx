@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Mensajes = [
+const MensajesIniciales = [
     {
         emisor: 'YO',
         hora: '23:10',
@@ -38,4 +38,4 @@ const Mensajes = [
     },
 ]
 
-export default Mensajes;
+export default MensajesIniciales;

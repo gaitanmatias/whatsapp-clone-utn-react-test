@@ -26,6 +26,7 @@ function MessageComponent(props) {
         <span className='footer__hora'>{props.hora}</span>
         <span className='footer__estado'>{renderTildes()}</span>
       </div>
+      {props.emisor == "YO" ? <button onClick={() => props.messageDelete(props.id)} className='footer__eliminar'>Eliminar</button> : null}
       </span>
     </div>
   )
